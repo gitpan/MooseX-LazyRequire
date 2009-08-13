@@ -1,0 +1,16 @@
+---
+abstract: 'Required attributes which fail only when trying to use them'
+author:
+  - 'Florian Ragwitz <rafl@debian.org>'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092200'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-LazyRequire
+requires:
+  Moose: 0
+  MooseX::Types::Moose: 0
+  aliased: 0.30
+  namespace::autoclean: 0
+version: 0.01
