@@ -14,4 +14,4 @@ requires:
   Test::More: 0.88
   aliased: 0.30
   namespace::autoclean: 0
-version: 0.02
+version: 0.03

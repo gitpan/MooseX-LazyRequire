@@ -1,5 +1,5 @@
 package MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use Moose::Role;
@@ -12,10 +12,6 @@ has lazy_required => (
     isa      => Bool,
     required => 1,
     default  => 0,
-);
-
-has lazy_require => (
-    is       => 'bare',
 );
 
 after _process_options => sub {
@@ -57,7 +53,7 @@ MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 AUTHOR
 

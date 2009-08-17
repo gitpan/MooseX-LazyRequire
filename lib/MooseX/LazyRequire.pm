@@ -1,5 +1,5 @@
 package MooseX::LazyRequire;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 # ABSTRACT: Required attributes which fail only when trying to use them
 
@@ -29,7 +29,7 @@ MooseX::LazyRequire - Required attributes which fail only when trying to use the
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
