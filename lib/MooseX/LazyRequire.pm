@@ -1,5 +1,5 @@
 package MooseX::LazyRequire;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 # ABSTRACT: Required attributes which fail only when trying to use them
 
@@ -29,7 +29,7 @@ MooseX::LazyRequire - Required attributes which fail only when trying to use the
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -39,8 +39,8 @@ version 0.01
     use MooseX::LazyRequire;
 
     has foo => (
-        is           => 'ro',
-        lazy_require => 1,
+        is            => 'ro',
+        lazy_required => 1,
     );
 
     has bar => (
@@ -56,7 +56,7 @@ version 0.01
 
 =head1 DESCRIPTION
 
-This module adds a C<lazy_require> option to Moose attribute declarations.
+This module adds a C<lazy_required> option to Moose attribute declarations.
 
 The reader methods for all attributes with that option will throw an exception
 unless a value for the attributes was provided earlier by a constructor
@@ -66,13 +66,13 @@ parameter or through a writer method.
 
 Apparently Moose roles don't have an attribute metaclass, so this module can't
 easily apply its magic to attributes defined in roles. If you want to use
-C<lazy_require> in role attributes, you'll have to apply the attribute trait
+C<lazy_required> in role attributes, you'll have to apply the attribute trait
 yourself:
 
     has foo => (
-        traits       => ['LazyRequire'],
-        is           => 'ro',
-        lazy_require => 1,
+        traits        => ['LazyRequire'],
+        is            => 'ro',
+        lazy_required => 1,
     );
 
 

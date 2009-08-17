@@ -11,6 +11,7 @@ name: MooseX-LazyRequire
 requires:
   Moose: 0
   MooseX::Types::Moose: 0
+  Test::More: 0.88
   aliased: 0.30
   namespace::autoclean: 0
-version: 0.01
+version: 0.02
