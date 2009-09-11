@@ -2,7 +2,7 @@
 abstract: 'Required attributes which fail only when trying to use them'
 author:
   - 'Florian Ragwitz <rafl@debian.org>'
-generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092200'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092450'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -14,4 +14,4 @@ requires:
   Test::More: 0.88
   aliased: 0.30
   namespace::autoclean: 0
-version: 0.03
+version: 0.04

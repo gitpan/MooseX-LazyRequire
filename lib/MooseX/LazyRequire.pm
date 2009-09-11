@@ -1,5 +1,5 @@
 package MooseX::LazyRequire;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 # ABSTRACT: Required attributes which fail only when trying to use them
 
@@ -18,6 +18,8 @@ sub init_meta {
     );
 }
 
+1;
+
 
 __END__
 
@@ -29,7 +31,7 @@ MooseX::LazyRequire - Required attributes which fail only when trying to use the
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -82,8 +84,6 @@ yourself:
 init_meta
 
 =end Pod::Coverage
-
-1;
 
 =head1 AUTHOR
 
