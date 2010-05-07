@@ -1,10 +1,14 @@
 package MooseX::LazyRequire;
-our $VERSION = '0.04';
-
+BEGIN {
+  $MooseX::LazyRequire::AUTHORITY = 'cpan:FLORA';
+}
+BEGIN {
+  $MooseX::LazyRequire::VERSION = '0.05';
+}
 # ABSTRACT: Required attributes which fail only when trying to use them
 
 use Moose::Exporter;
-use aliased 'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire';
+use aliased 0.30 'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire';
 use namespace::autoclean;
 
 
@@ -22,16 +26,11 @@ sub init_meta {
 
 
 __END__
-
 =pod
 
 =head1 NAME
 
 MooseX::LazyRequire - Required attributes which fail only when trying to use them
-
-=head1 VERSION
-
-version 0.04
 
 =head1 SYNOPSIS
 
@@ -51,6 +50,7 @@ version 0.04
     );
 
     sub _build_bar { shift->foo }
+
 
     Foo->new(foo => 42); # succeeds, foo and bar will be 42
     Foo->new(bar => 42); # succeeds, bar will be 42
@@ -77,13 +77,7 @@ yourself:
         lazy_required => 1,
     );
 
-
-
-=begin Pod::Coverage
-
-init_meta
-
-=end Pod::Coverage
+=for Pod::Coverage init_meta
 
 =head1 AUTHOR
 
@@ -91,11 +85,10 @@ init_meta
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Florian Ragwitz.
+This software is copyright (c) 2010 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 
