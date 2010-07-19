@@ -12,7 +12,6 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'Required attributes which fail only when trying to use them',
   'AUTHOR' => 'Florian Ragwitz <rafl@debian.org>',
   'BUILD_REQUIRES' => {
-    'Moose' => '0',
     'Test::Exception' => '0',
     'Test::More' => '0.88'
   },
@@ -25,13 +24,14 @@ my %WriteMakefileArgs = (
   'NAME' => 'MooseX::LazyRequire',
   'PREREQ_PM' => {
     'Carp' => '0',
+    'Moose' => '0.94',
     'Moose::Exporter' => '0',
     'Moose::Role' => '0',
     'MooseX::Types::Moose' => '0',
     'aliased' => '0.30',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.05',
+  'VERSION' => '0.06',
   'test' => {
     'TESTS' => 't/*.t'
   }
@@ -40,10 +40,10 @@ my %WriteMakefileArgs = (
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM}; 
+  my $pp = $WriteMakefileArgs{PREREQ_PM};
   for my $mod ( keys %$br ) {
     if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod}; 
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
     }
     else {
       $pp->{$mod} = $br->{$mod};

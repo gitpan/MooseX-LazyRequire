@@ -3,30 +3,29 @@ BEGIN {
   $MooseX::LazyRequire::AUTHORITY = 'cpan:FLORA';
 }
 BEGIN {
-  $MooseX::LazyRequire::VERSION = '0.05';
+  $MooseX::LazyRequire::VERSION = '0.06';
 }
 # ABSTRACT: Required attributes which fail only when trying to use them
 
+use Moose 0.94 ();
 use Moose::Exporter;
 use aliased 0.30 'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire';
 use namespace::autoclean;
 
 
-Moose::Exporter->setup_import_methods;
-
-sub init_meta {
-    my ($class, %options) = @_;
-    return Moose::Util::MetaRole::apply_metaclass_roles(
-        for_class                 => $options{for_class},
-        attribute_metaclass_roles => [LazyRequire],
-    );
-}
+Moose::Exporter->setup_import_methods(
+    class_metaroles => {
+        attribute => [LazyRequire],
+    },
+);
 
 1;
 
 
 __END__
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -81,7 +80,7 @@ yourself:
 
 =head1 AUTHOR
 
-  Florian Ragwitz <rafl@debian.org>
+Florian Ragwitz <rafl@debian.org>
 
 =head1 COPYRIGHT AND LICENSE
 

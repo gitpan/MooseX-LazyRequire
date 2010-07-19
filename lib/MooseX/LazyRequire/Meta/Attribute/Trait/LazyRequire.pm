@@ -3,7 +3,7 @@ BEGIN {
   $MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire::AUTHORITY = 'cpan:FLORA';
 }
 BEGIN {
-  $MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire::VERSION = '0.05';
+  $MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire::VERSION = '0.06';
 }
 # ABSTRACT: Attribute trait to make getters fail on unset attributes
 
@@ -47,7 +47,7 @@ BEGIN {
   $Moose::Meta::Attribute::Custom::Trait::LazyRequire::AUTHORITY = 'cpan:FLORA';
 }
 BEGIN {
-  $Moose::Meta::Attribute::Custom::Trait::LazyRequire::VERSION = '0.05';
+  $Moose::Meta::Attribute::Custom::Trait::LazyRequire::VERSION = '0.06';
 }
 
 sub register_implementation { 'MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire' }
@@ -57,13 +57,15 @@ sub register_implementation { 'MooseX::LazyRequire::Meta::Attribute::Trait::Lazy
 __END__
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire - Attribute trait to make getters fail on unset attributes
 
 =head1 AUTHOR
 
-  Florian Ragwitz <rafl@debian.org>
+Florian Ragwitz <rafl@debian.org>
 
 =head1 COPYRIGHT AND LICENSE
 
