@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.31;
 
 my %WriteMakefileArgs = (
   'ABSTRACT' => 'Required attributes which fail only when trying to use them',
-  'AUTHOR' => 'Florian Ragwitz <rafl@debian.org>',
+  'AUTHOR' => 'Florian Ragwitz <rafl@debian.org>, Dave Rolsky <autarch@urth.org>',
   'BUILD_REQUIRES' => {
     'Test::Exception' => '0',
     'Test::More' => '0.88'
@@ -31,7 +31,7 @@ my %WriteMakefileArgs = (
     'aliased' => '0.30',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.06',
+  'VERSION' => '0.07',
   'test' => {
     'TESTS' => 't/*.t'
   }
