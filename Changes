@@ -1,3 +1,9 @@
+Change history for distribution MooseX-LazyRequire
+
+0.08      2012-07-02 09:58:41 PDT-0700  (Karen Etheridge)
+  * Convert uses of Test::Exception to Test::Fatal
+  * Add TODO test for RT#76054 (thanks for the report, ilyuha!)
+
 0.07  Mon, 04 Apr 2011 18:08:34 +0200
   * Allow this module to be used with attributes in roles when using Moose
     1.9900+ (Dave Rolsky).

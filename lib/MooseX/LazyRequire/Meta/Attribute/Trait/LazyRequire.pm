@@ -2,8 +2,8 @@ package MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire;
 BEGIN {
   $MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire::AUTHORITY = 'cpan:FLORA';
 }
-BEGIN {
-  $MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire::VERSION = '0.07';
+{
+  $MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire::VERSION = '0.08';
 }
 # ABSTRACT: Attribute trait to make getters fail on unset attributes
 
@@ -73,7 +73,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Florian Ragwitz.
+This software is copyright (c) 2012 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -4,17 +4,29 @@ author:
   - 'Florian Ragwitz <rafl@debian.org>'
   - 'Dave Rolsky <autarch@urth.org>'
 build_requires:
-  Test::Exception: 0
+  File::Find: 0
+  File::Temp: 0
+  Test::CheckDeps: 0.002
+  Test::Fatal: 0
   Test::More: 0.88
+  strict: 0
+  warnings: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.102400'
+generated_by: 'Dist::Zilla version 4.300020, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: MooseX-LazyRequire
+provides:
+  MooseX::LazyRequire:
+    file: lib/MooseX/LazyRequire.pm
+    version: 0.08
+  MooseX::LazyRequire::Meta::Attribute::Trait::LazyRequire:
+    file: lib/MooseX/LazyRequire/Meta/Attribute/Trait/LazyRequire.pm
+    version: 0.08
 requires:
   Carp: 0
   Moose: 0.94
@@ -24,131 +36,223 @@ requires:
   aliased: 0.30
   namespace::autoclean: 0
 resources:
-  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=MooseX-LazyRequire
-  homepage: http://search.cpan.org/dist/MooseX-LazyRequire
-  repository: git://github.com/rafl/moosex-lazyrequire.git
-version: 0.07
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=MooseX-LazyRequire
+  homepage: https://github.com/karenetheridge/moosex-lazyrequire
+  repository: https://github.com/karenetheridge/moosex-lazyrequire.git
+version: 0.08
 x_Dist_Zilla:
   plugins:
     -
-      class: Dist::Zilla::Plugin::GatherDir
-      name: '@FLORA/@Basic/GatherDir'
-      version: 4.200004
+      class: Dist::Zilla::Plugin::Git::GatherDir
+      name: Git::GatherDir
+      version: 1.121010
     -
       class: Dist::Zilla::Plugin::PruneCruft
-      name: '@FLORA/@Basic/PruneCruft'
-      version: 4.200004
+      name: '@Filter/@Basic/PruneCruft'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::ManifestSkip
-      name: '@FLORA/@Basic/ManifestSkip'
-      version: 4.200004
+      name: '@Filter/@Basic/ManifestSkip'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::MetaYAML
-      name: '@FLORA/@Basic/MetaYAML'
-      version: 4.200004
+      name: '@Filter/@Basic/MetaYAML'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::License
-      name: '@FLORA/@Basic/License'
-      version: 4.200004
+      name: '@Filter/@Basic/License'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::Readme
-      name: '@FLORA/@Basic/Readme'
-      version: 4.200004
+      name: '@Filter/@Basic/Readme'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::ExtraTests
-      name: '@FLORA/@Basic/ExtraTests'
-      version: 4.200004
+      name: '@Filter/@Basic/ExtraTests'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::ExecDir
-      name: '@FLORA/@Basic/ExecDir'
-      version: 4.200004
+      name: '@Filter/@Basic/ExecDir'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::ShareDir
-      name: '@FLORA/@Basic/ShareDir'
-      version: 4.200004
+      name: '@Filter/@Basic/ShareDir'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::MakeMaker
-      name: '@FLORA/@Basic/MakeMaker'
-      version: 4.200004
+      name: '@Filter/@Basic/MakeMaker'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::Manifest
-      name: '@FLORA/@Basic/Manifest'
-      version: 4.200004
+      name: '@Filter/@Basic/Manifest'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::TestRelease
-      name: '@FLORA/@Basic/TestRelease'
-      version: 4.200004
+      name: '@Filter/@Basic/TestRelease'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
-      name: '@FLORA/@Basic/ConfirmRelease'
-      version: 4.200004
+      name: '@Filter/@Basic/ConfirmRelease'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
-      name: '@FLORA/@Basic/UploadToCPAN'
-      version: 4.200004
+      name: '@Filter/@Basic/UploadToCPAN'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::MetaConfig
-      name: '@FLORA/MetaConfig'
-      version: 4.200004
+      name: '@Filter/MetaConfig'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::MetaJSON
-      name: '@FLORA/MetaJSON'
-      version: 4.200004
+      name: '@Filter/MetaJSON'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::PkgVersion
-      name: '@FLORA/PkgVersion'
-      version: 4.200004
+      name: '@Filter/PkgVersion'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
-      name: '@FLORA/PodSyntaxTests'
-      version: 4.200004
+      name: '@Filter/PodSyntaxTests'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::NoTabsTests
-      name: '@FLORA/NoTabsTests'
+      name: '@Filter/NoTabsTests'
       version: 0.01
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
-      name: '@FLORA/PodCoverageTests'
-      version: 4.200004
-    -
-      class: Dist::Zilla::Plugin::MetaResources
-      name: '@FLORA/MetaResources'
-      version: 4.200004
+      name: '@Filter/PodCoverageTests'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::Authority
-      name: '@FLORA/Authority'
-      version: 1.002
+      name: '@Filter/Authority'
+      version: 1.006
     -
       class: Dist::Zilla::Plugin::EOLTests
-      name: '@FLORA/EOLTests'
+      name: '@Filter/EOLTests'
       version: 0.02
     -
       class: Dist::Zilla::Plugin::PodWeaver
-      name: '@FLORA/PodWeaver'
+      name: '@Filter/PodWeaver'
       version: 3.101641
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: AutoPrereqs
-      version: 4.200004
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::Git::NextVersion
+      name: Git::NextVersion
+      version: 1.121010
+    -
+      class: Dist::Zilla::Plugin::MetaConfig
+      name: MetaConfig
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::GithubMeta
+      name: GithubMeta
+      version: 0.28
+    -
+      class: Dist::Zilla::Plugin::MetaProvides::Package
+      name: MetaProvides::Package
+      version: 1.14000001
+    -
+      class: Dist::Zilla::Plugin::MetaResources
+      name: MetaResources
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
+      name: Test::Pod::LinkCheck
+      version: 1.001
+    -
+      class: Dist::Zilla::Plugin::Test::Pod::No404s
+      name: Test::Pod::No404s
+      version: 1.001
+    -
+      class: Dist::Zilla::Plugin::CheckPrereqsIndexed
+      name: CheckPrereqsIndexed
+      version: 0.007
+    -
+      class: Dist::Zilla::Plugin::Test::Compile
+      name: Test::Compile
+      version: 1.112820
+    -
+      class: Dist::Zilla::Plugin::Test::MinimumVersion
+      name: Test::MinimumVersion
+      version: 2.0.1
+    -
+      class: Dist::Zilla::Plugin::MetaTests
+      name: MetaTests
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::Test::CPAN::Changes
+      name: Test::CPAN::Changes
+      version: 0.005
+    -
+      class: Dist::Zilla::Plugin::Test::ChangesHasContent
+      name: Test::ChangesHasContent
+      version: 0.005
+    -
+      class: Dist::Zilla::Plugin::Test::CheckDeps
+      name: Test::CheckDeps
+      version: 0.005
+    -
+      class: Dist::Zilla::Plugin::Git::Remote::Check
+      name: Git::Remote::Check
+      version: 0.1.2
+    -
+      class: Dist::Zilla::Plugin::Git::Check
+      name: Git::Check
+      version: 1.121010
+    -
+      class: Dist::Zilla::Plugin::NextRelease
+      name: NextRelease
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::Git::Commit
+      name: Git::Commit
+      version: 1.121010
+    -
+      class: Dist::Zilla::Plugin::Git::Tag
+      name: Git::Tag
+      version: 1.121010
+    -
+      class: Dist::Zilla::Plugin::Git::Push
+      name: Git::Push
+      version: 1.121010
+    -
+      class: Dist::Zilla::Plugin::InstallRelease
+      name: InstallRelease
+      version: 0.008
+    -
+      class: Dist::Zilla::Plugin::Clean
+      name: Clean
+      version: 0.03
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.200004
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':IncModules'
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.200004
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.200004
+      version: 4.300020
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.200004
+      version: 4.300020
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':MainModule'
+      version: 4.300020
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.200004
+    version: 4.300020
 x_authority: cpan:FLORA
