@@ -32,11 +32,10 @@ my %WriteMakefileArgs = (
     "Moose" => "0.94",
     "Moose::Exporter" => 0,
     "Moose::Role" => 0,
-    "MooseX::Types::Moose" => 0,
     "aliased" => "0.30",
     "namespace::autoclean" => 0
   },
-  "VERSION" => "0.08",
+  "VERSION" => "0.09",
   "test" => {
     "TESTS" => "t/*.t"
   }

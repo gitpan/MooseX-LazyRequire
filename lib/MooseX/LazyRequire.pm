@@ -3,7 +3,7 @@ BEGIN {
   $MooseX::LazyRequire::AUTHORITY = 'cpan:FLORA';
 }
 {
-  $MooseX::LazyRequire::VERSION = '0.08';
+  $MooseX::LazyRequire::VERSION = '0.09';
 }
 # ABSTRACT: Required attributes which fail only when trying to use them
 
@@ -28,8 +28,8 @@ Moose::Exporter->setup_import_methods(%metaroles);
 
 1;
 
-
 __END__
+
 =pod
 
 =encoding utf-8
@@ -110,4 +110,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

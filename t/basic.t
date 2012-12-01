@@ -12,37 +12,21 @@ use Test::Fatal;
         is            => 'ro',
         lazy_required => 1,
     );
-
-    has baz => (
-        is      => 'ro',
-        builder => '_build_baz',
-    );
-
-    sub _build_baz { shift->bar + 1 }
 }
 
 {
-    my $foo;
     is(
-        exception { $foo = Foo->new(bar => 42) },
+        exception { Foo->new },
         undef,
+        'lazy_required attrs are not required until first accessed',
     );
-    is($foo->baz, 43);
-}
 
-{
-    my $foo;
-    is(
-        exception { $foo = Foo->new(baz => 23) },
-        undef,
+    like(
+        exception { Foo->new->bar },
+        qr/Attribute bar must be provided/,
+        'lazy_required value was not provided',
     );
-    is($foo->baz, 23);
 }
-
-like(
-    exception { Foo->new },
-    qr/must be provided/,
-);
 
 {
     package Bar;
@@ -68,7 +52,8 @@ like(
 
     like(
         exception { $bar->baz },
-        qr/must be provided/,
+        qr/Attribute foo must be provided/,
+        'lazy_required dependency is not satisfied',
     );
 
     $bar->foo(42);
@@ -77,9 +62,10 @@ like(
     is(
         exception { $baz = $bar->baz },
         undef,
+        'lazy_required dependency is satisfied',
     );
 
-    is($baz, 43);
+    is($baz, 43, 'builder uses correct value');
 }
 
 SKIP:
@@ -117,7 +103,8 @@ SKIP:
 
     like(
         exception { $bar->baz },
-        qr/must be provided/,
+        qr/Attribute foo must be provided/,
+        'lazy_required dependency is not satisfied (in a role)',
     );
 
     $bar->foo(42);
@@ -126,9 +113,10 @@ SKIP:
     is(
         exception { $baz = $bar->baz },
         undef,
-);
+        'lazy_required dependency is satisfied (in a role)',
+    );
 
-    is($baz, 43);
+    is($baz, 43, 'builder uses correct value (in a role)');
 }
 }
 
