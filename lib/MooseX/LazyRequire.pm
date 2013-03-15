@@ -3,7 +3,7 @@ BEGIN {
   $MooseX::LazyRequire::AUTHORITY = 'cpan:FLORA';
 }
 {
-  $MooseX::LazyRequire::VERSION = '0.09';
+  $MooseX::LazyRequire::VERSION = '0.10';
 }
 # ABSTRACT: Required attributes which fail only when trying to use them
 
@@ -104,7 +104,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Florian Ragwitz.
+This software is copyright (c) 2013 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
